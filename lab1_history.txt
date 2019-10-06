@@ -1,0 +1,93 @@
+    1  whoami
+    2  whoaim
+    3  whoami
+    4  date
+    5  cal
+    6  man cal
+    7  cal -3
+    8  history
+    9  clear
+   10  pwd
+   11  cd /
+   12  cd ..
+   13  pwd
+   14  ls
+   15  ls /var
+   16  cd ~
+   17  cd
+   18  cd ..
+   19  ls
+   20  ls -l
+   21  man ls
+   22  cd
+   23  mkdir fruits
+   24  mkdir ~/animals
+   25  touch /tmp/temp
+   26  cd fruits
+   27  touch apple banana pineaple lion
+   28  touch ~/animals/cat.txt ~/animals/dog.txt ~/animals/elephant.txt
+   29  ls -l --time=ctime apple
+   30  ls b*
+   31  ls *a
+   32  ls *[bi]*
+   33  ls b* i*
+   34  cp /etc/passwd ~
+   35  cat /etc/issue
+   36  cp /etc/issue apple
+   37  cat apple
+   38  mv lion ~/animals
+   39  mv pineaple pineapple
+   40  man wc
+   41  wc -l /etc/passwd
+   42  cd 
+   43  ln -s /etc/passwd passwd_link
+   44  ln .bash_history history_hard
+   45  ls -l .bash_history
+   46  ls -l animals
+   47  rm fruits/apple
+   48  mkdir rmme
+   49  rmdir fruits
+   50  rm -fr fruits
+   51  cat /etc/passwd /var/log/boot.log
+   52  cp /etc/init.d/ ~
+   53  cp -r /etc/init.d/ ~
+   54  rm -fr init.d
+   55  man cut
+   56  cut -d: -f1 /etc/passwd | sort
+   57  man column
+   58  cut -d: -f1,3,4 /etc/passwd | column -ts: | less
+   59  cut -d: -f1,3 /etc/passwd | column -ts: | less
+   60  grep :/bin/bash /etc/passwd | wc -l
+   61  man grep
+   62  grep :/bin/bash /etc/passwd | cut -d: -f1 | sort -r
+   63  man head
+   64  rpm -qa --qf '%{NAME}: %{SIZE}\n' | sort -rn -k2,2 | head -n25
+   65  rpm -ql man-db | xargs -l du    2> /dev/null  | sort -n
+   66  top -b -n1 | sort -k2
+   67  top -b -n1 | tail -n+8 | cut -c7-  | tr -s ' ' '\t' | cut -f11,5
+   68  cat /etc/passwd | sort -k1 | tr ":" " "
+   69  cut -d: -f1,7 /etc/passwd | sort -k1 | column -ts:
+   70  cd /usr/share/doc/git-*
+   71  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]' | tr -d '[:punct:]' | grep -v '[^a-z]' | sort | uniq -c | sort -rn | head -5
+   72  cat user-manual.txt | tr -cs '[:alpha:]' '\n' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -rn | head -5
+   73  tr '[:lower:]' '[:upper:]' < user-manual.txt |  tr -d '[:punct:] \n\t' | fold -w1 | sort | uniq -c | sort -rn | head -5
+   74  tr -cs '[:alpha:]' '\n' < user-manual.txt | less | grep -E ........ | sort | uniq -c | sort -rn | head
+   75  ping ya.ru
+   76  curl wttr.in
+   77  hostname -I
+   78  curl ifconfig.me
+   79  wget https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README-ru.md | less
+   80  sudo -s
+   81  id
+   82  whoami
+   83  exit
+   84  su - parallels
+   85  sudo id
+   86  id 
+   87  sudo less /var/log/messages
+   88  /var/log/messages
+   89  sudo -s
+   90  id
+   91  whoami
+   92  exit
+   93  history > lab1_history.txt
