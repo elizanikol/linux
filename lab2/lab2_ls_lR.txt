@@ -1,0 +1,10 @@
+.:
+total 4
+drw-rw-r--. 2 parallels parallels  22 Oct 18 12:46 dir
+-rw-r-----. 1 root      parallels   5 Oct 18 12:44 file
+-rw-------. 1 parallels parallels   0 Oct 18 12:50 file1
+-rw-rw-rw-. 1 parallels parallels   0 Oct 18 12:50 file2
+
+./dir:
+total 0
+-????????? ? ? ? ?            ? new_file
