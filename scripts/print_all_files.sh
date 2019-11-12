@@ -1,11 +1,11 @@
 #!/bin/bash
 echo "Каталоги:"
-ll | grep ^d
+ls -l | grep ^d
 echo "Обычные файлы:"
-ll | grep ^-
+ls -l | grep ^-
 echo "Символьные ссылки:"
-ll -a | grep ^l
+ls -l | grep ^l
 echo "Символьные устройства:"
-ll | grep ^c
+ls -l | grep ^c
 echo "Блочные устройства:"
-ll | grep ^b
+ls -l | grep ^b
