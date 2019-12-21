@@ -1,0 +1,136 @@
+    8  ps -e
+    9  ps -ef
+   10  ps -eF
+   11  ps -ely
+   12  ps ax
+   13  ps axu
+   14  ps -ejHH
+   15  ps axjf
+   16  ps -eLf
+   17  ps axms
+   18  ps -eo euser,ruser,suser,fuser,f,comm,label
+   19  ps axZ
+   20  ps -eM
+   21  ps -U root -u root u
+   22  ps -eo pid,tid,class,rtprio,ni,pri,psr,pcpu,stat,wchan:14,comm
+   23  ps axo stat,euid,ruid,tty,tpgid,sess,pgrp,ppid,pid,pcpu,comm
+   24  ps -Ao pid,tt,user,fname,tmout,f,wchan
+   25  ps -C systemd -o pid=
+   26  ps -q номер -o comm=
+   27  history >> lab5_history.txt
+    8  ( while true; do printf "AAA %d " $$ >> ~/test.out; sleep 1; done )
+    9  jobs 
+   10  ps j
+   11  bg
+   12  jobs
+   13  ps j
+   14  ( while true; do printf "UUU %d " $$ >> ~/test.out; sleep 1; done )&
+   15  jobs
+   16  fg %1
+   17  fg %2
+   18  jobs
+   19  history >> lab5_history.txt
+    8  tail -f ~/test.out
+    9  history >> lab5_history.txt
+    1  ( while true; do printf "AAA %d " $$ >> ~/test.out; sleep 1; done ) &
+    2  ( while true; do printf "UUU %d " $$ >> ~/test.out; sleep 1; done ) &
+    3  jobs
+    4  ps j
+    5  kill -SIGSTOP %1
+    6  jobs
+    7  kill -SIGTERM %2
+    8  jobs
+    9  fg
+   10  history >> lab5_history.txt
+    1  tail -f ~/test.out
+    2  history >> lab5_history.txt
+    1  sh
+    2  vim
+    3  chmod +x test-trap.sh
+    4  ./test-trap.sh
+    5  history >> lab5_history.txt
+    1  cat /proc/version
+    2  uname -a
+    3  cat /proc/meminfo
+    4  cat /sys/devices/system/node/node0/meminfo
+    5  free
+    6  cat /proc/cpuinfo
+    7  cat /proc/uptime
+    8  uptime
+    9  echo $$
+   10  ls -l /proc/self
+   11  ls -ld /proc/$$
+   12  cat /proc/PID_процесса/stat
+   13  read pid tcomm state other < /proc/$$/stat
+   14  echo "Процесс $pid $tcomm находится в состоянии $state"
+   15  history >> lab5_history.txt
+    1  cat /proc/version
+    2  uname -a
+    3  cat /proc/meminfo
+    4  cat /sys/devices/system/node/node0/meminfo
+    5  free
+    6  cat /proc/cpuinfo
+    7  cat /proc/uptime
+    8  uptime
+    9  echo $$
+   10  ls -l /proc/self
+   11  ls -ld /proc/$$
+   12  cat /proc/PID_процесса/stat
+   13  cat /proc/PID/stat
+   14  cat /proc/[pid]/stat
+   15  read pid tcomm state other < /proc/$$/stat
+   16  echo "Процесс $pid $tcomm находится в состоянии $state"
+   17  history >> lab5_history.txt
+   18  ls -l /dev/std*
+   19  ls -l /dev/fd/
+   20  ls -l /proc/self/fd
+   21  ls -l /proc/self/fd > /tmp/ls.out 2> /tmp/ls.err
+   22  cat /tmp/ls.out
+   23  ls -l /proc/self/fd 0< /tmp/ls.in
+   24  cat /tmp/ls.in
+   25  history >> lab5_history.txt
+    1  ( cat | head ) > ~/test.out 2> ~/test.err
+    2  mkfifo ~/fifo1
+    3  cat > ~/fifo1
+    4  history >> lab5_history.txt
+    1  ps j
+    2  ls -l /proc/13542/fd
+    3  ls -l /proc/13543/fd
+    4  ls -l /proc/13544/fd
+    5  cat < ~/fifo1
+    6  history >> lab5_history.txt
+    1  ps j
+    2  ls -l /proc/24842/fd
+    3  ps j
+    4  ls -l /proc/25945/fd
+    5  cat < ~/fifo1
+    6  history >> lab5_history.txt
+    1  sh
+    2  ps -l
+    3  exec 3> ~/test.out
+    4  ls -l /proc/$$/fd
+    5  echo Test
+    6  echo Test3 >&3
+    7  cat ~/test.out 
+    8  echo Test333 >&3
+    9  cat ~/test.out 
+   10  echo $$
+   11  ls -l /proc/3203/fdinfo/
+   12  ls -l /proc/4187/fdinfo/
+   13  cat /proc/4187/fdinfo/3
+   14  exec 4< ~/test.out 
+   15  ls -l /proc/$$/fd
+   16  cat ~/test.out 
+   17  cat <&4
+   18  cat ~/test.out 
+   19   cat <&4
+   20  echo Test4 >&3
+   21  cat ~/test.out 
+   22  cat <&4
+   23  rm ~/test.out 
+   24  ls -l /proc/$$/fd
+   25  cat  ~/test.out
+   26  cat <&4
+   27  vim
+   28  ps -e -o ruid,euid,cmd | xargs -l ./ps_5.sh
+   29  history >> lab5_history.txt
